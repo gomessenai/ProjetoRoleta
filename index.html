@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Navbar com Bootstrap</title>
+  <style>
+    body {
+      background-image: url(image/logocassino.jpg); /* Substitua pelo caminho da imagem de fundo */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-color: rgb(1, 1, 1); /* Escurecer em 50% */
+      margin: 0;
+      padding: 0;
+    }
+    .spacer {
+      height: calc(50vh - 56px); /* Altura do espaço (metade da tela - altura da navbar) */
+    }
+    .image-column {
+      height: 50vh; /* Metade da tela */
+      background-color: rgba(33, 37, 41, 0.8); /* Cor de fundo escura para as colunas de imagem */
+    }
+    .image {
+      height: 100%; /* Preencher a altura da coluna */
+      background-image: url('caminho-da-imagem.jpg'); /* Substitua pelo caminho da imagem */
+      background-size: cover;
+      background-position: center;
+    }
+    .footer {
+      background-color: #343a40; /* Cor de fundo do rodapé */
+      color: white; /* Cor do texto do rodapé */
+      text-align: center;
+      padding: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item active">
+            <a class="nav-link" style="font-size: xx-large;" href="#">Início</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav" style="font-size: xx-large;">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Opção 1</a></li>
+              <li><a class="dropdown-item" href="#">Opção 2</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Outra opção</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="conteudo" style="display: flex; justify-content: space-between;">
+    <div id="Imagem"><img src="image/iate.jpg" width="800" height="800" style="padding: 50px;  border-radius: 10px; /* Valor de arredondamento desejado */" alt=""></div>
+
+    <div id="Texto" style="padding: 50px; color: white; font-size: xx-large;">Onde ficamos:
+
+        O MSC  Seashore é um dos navios da frota da MSC Crociere. Com capacidade para mais de 5.000 passageiros,
+         é parte da classe "Seaside" e também um dos maiores da companhia. Após navegar na Europa e Caribe, agora também com embarque no Brasil.</div>
+    
+  </div>
+
+
+  <div class="footer">
+    <p>© 2023 Seu Nome. Todos os direitos reservados.</p>
+  </div> <!-- Rodapé -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
