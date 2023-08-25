@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roleta</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <style>
+
+@media only screen and (max-width: 600px) {}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+    body {
+      background-color: #333;
+      color: #fff;
+      
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .logo {
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+
+    .navbar {
+      background-color: #d5d5d5;
+    }
+
+    .navbar-brand {
+      color: black;
+    }
+
+    .navbar-nav .nav-link {
+      color: black;
+    }
+
+    .btn-primary {
+      background-color: #555;
+      border-color: #555;
+    }
+
+    .btn-primary:hover {
+      background-color: #777;
+      border-color: #777;
+    }
+
+    #meuIFrame {
+      display: block;
+      margin: 0 auto;
+      width: 320px;
+      height: 180px;
+    }
+
+    #rotate-container {
+      display: inline-block;
+      transition: transform 6s;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src="image/logocassino.jpg" width="175" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sobre</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Serviços</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contato</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="colorDropdown" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Selecione uma cor
+      </button>
+      <div class="dropdown-menu" aria-labelledby="colorDropdown">
+        <a class="dropdown-item color-option" href="#" data-color="Vermelho" style="color: red;">Vermelho</a>
+        <a class="dropdown-item color-option" href="#" data-color="Preto" style="color: black;">Preto</a>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+  <div>_________________________________________________________________________________________________________________________________________V________________________________________________________________________________________________________________________________________________ </div>
+  
+  <div class="roelta" style="display: flex; justify-content: center;">
+    <div class="roelta" style="display: flex; justify-content: center;">
+      <div>
+        <img id="rotate-container" src="image/roletacerta.png" alt="Imagem" width="450" height=400">
+        <button onclick="rotateImage()">Girar</button>
+    
+        <script>
+         let rotating = false;
+    let rotationSpeed = 1200; // Velocidade de rotação em graus por segundo (200 rotações por minuto)
+
+    function rotateImage() {
+      if (!rotating) {
+        rotating = true;
+        const rotateContainer = document.getElementById('rotate-container');
+        const start = performance.now();
+        let lastTimestamp = start;
+
+        function updateRotation(timestamp) {
+          const elapsed = timestamp - start;
+          const delta = (timestamp - lastTimestamp) / 1000;
+          const rotation = (elapsed * rotationSpeed) / 360;
+          rotateContainer.style.transform = `rotate(${rotation}deg)`;
+          lastTimestamp = timestamp;
+
+          if (elapsed < 6000) {
+            requestAnimationFrame(updateRotation);
+          } else {
+            stopRotation();
+          }
+        }
+
+        function stopRotation() {
+          rotating = false;
+          const finalRotation = Math.floor(Math.random() * 360); // Posição aleatória entre 0 e 359 graus
+          rotateContainer.style.transform = `rotate(${finalRotation}deg)`;
+
+          const color = finalRotation <= 180 ? "Vermelho" : "Preto";
+          document.getElementById('colorMessage').textContent = color;
+          $('#colorModal').modal('show');
+        }
+
+        requestAnimationFrame(updateRotation);
+            }
+          }
+        </script>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel"
+    aria-hidden="true">
+    <iframe id="meuIFrame" width="320" height="180"></iframe>
+    <button onclick="playRandomVideo()">GIRAR A ROLETA!!!</button>
+  </div>
+
+  <script>
+    $('.color-option').click(function () {
+      const selectedColor = $(this).data('color');
+      $('#colorDropdown').html(selectedColor);
+    });
+
+   
+    
+
+    
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
